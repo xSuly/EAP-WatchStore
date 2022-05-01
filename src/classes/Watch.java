@@ -1,6 +1,6 @@
 package classes;
 
-public class Watch {
+public class Watch implements Comparable<Watch> {
 
     private String brand;
     private String model;
@@ -66,5 +66,14 @@ public class Watch {
                 ", mechanism='" + mechanism + '\'' +
                 ", strap='" + strap + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Watch o) {
+        if(this.getPrice() == o.getPrice())
+            return 0;
+        else if (this.getPrice() < o.getPrice())
+            return -1;
+        else return 1;
     }
 }

@@ -34,6 +34,11 @@ public class Order {
         return cost;
     }
 
+    public static int getOrder_id() {
+        return order_id;
+    }
+
+
     @Override
     public String toString() {
         return "Order{" +

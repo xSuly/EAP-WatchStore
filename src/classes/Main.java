@@ -1,5 +1,6 @@
 package classes;
 
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -28,6 +29,13 @@ public class Main {
         u2.addWatchUser(o2, rolex1);
 
         System.out.println(userList);
+
+        Atlantic atlantic1 = new Atlantic("", "Seabase", 1147, 2020, false, true, "Analog", "Chain", true);
+        Watch watch2 = new Watch("Breitling", "Superocean", 25500, 2010, false, true, "Analog", "Leather");
+        watchList.add(atlantic1);
+        watchList.add(watch2);
+        Collections.sort((List<Watch>) watchList);
+        System.out.println(watchList);
 
         Smartwatch smartwatch1 = new Smartwatch("Samsung", "Galaxy Watch Classic4", 1099.99, 2019, true, true, "Digital", "Silicone", 1.36, 1.5, "450x450", 1.18, 361, 16, false, true, true);
         System.out.println(smartwatch1);
