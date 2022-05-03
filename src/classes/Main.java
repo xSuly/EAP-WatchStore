@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
 
         Watch watch1 = new Watch("Fossil", "Townsman", 935.50, 2018, false, true, "Mechanic", "Chain");
-        Rolex rolex1 = new Rolex("", "Daytona", 4500, 2015, false, true, "Quartz", "Leather");
+        Rolex rolex1 = new Rolex("Daytona", 4500, 2015, false, true, "Quartz", "Leather");
 
         List<Watch> watchList = new LinkedList<>();
         watchList.add(watch1);
@@ -30,10 +30,12 @@ public class Main {
 
         System.out.println(userList);
 
-        Atlantic atlantic1 = new Atlantic("", "Seabase", 1147, 2020, false, true, "Analog", "Chain", true);
+        Atlantic atlantic1 = new Atlantic("Seabase", 1147, 2020, false, true, "Analog", "Chain", true);
         Watch watch2 = new Watch("Breitling", "Superocean", 25500, 2010, false, true, "Analog", "Leather");
         watchList.add(atlantic1);
         watchList.add(watch2);
+        GShock gShock1 = new GShock("G-Steel", 1587, 2019, false, true, "Quartz", "Leather");
+        watchList.add(gShock1);
         Collections.sort((List<Watch>) watchList);
         System.out.println(watchList);
 

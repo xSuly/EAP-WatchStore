@@ -2,7 +2,8 @@ package classes;
 
 public class User implements Comparable<User>{
 
-    private static int user_id = 1;
+    private static int user_id = 1000;
+    private int id;
     private String username;
     private String password;
     private String email;
@@ -27,6 +28,7 @@ public class User implements Comparable<User>{
 
     public User(String username, String password, String email, int age, String adress, String city, String country) {
 
+        this.id = user_id;
         this.username = username;
         this.password = password;
         this.email = email;
@@ -34,6 +36,7 @@ public class User implements Comparable<User>{
         this.adress = adress;
         this.city = city;
         this.country = country;
+        user_id++;
     }
 
     public void addWatchUser(Order order, Watch watch)
@@ -60,7 +63,8 @@ public class User implements Comparable<User>{
     @Override
     public String toString() {
         return "User{" +
-                "username='" + username + '\'' +
+                "user_id= '" + id + '\'' +
+                ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", age=" + age +

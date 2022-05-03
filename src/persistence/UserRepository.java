@@ -54,7 +54,7 @@ public class UserRepository implements  GenericRepository<User>{
             }
             if (choice == 4)
             {
-                System.out.println("Your changes have beens saved!");
+                System.out.println("Your changes have been saved!");
                 break;
             }
             choice = read.nextInt();

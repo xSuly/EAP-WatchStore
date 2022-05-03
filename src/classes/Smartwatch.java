@@ -60,17 +60,21 @@ public class Smartwatch extends Watch{
         return bluetooth;
     }
 
+    public void setProcessor_freq(double processor_freq) {
+        this.processor_freq = processor_freq;
+    }
+
     @Override
     public String toString() {
         return "Smartwatch{" +
                 "brand=" + getBrand() +
-                ",model=" + getModel() +
-                ",price=" + getPrice() +
-                ",fabrication date=" + getFabrication_date() +
-                ",water resistant?: " + isWater_resistant() +
-                ",mechanism=" + getMechanism() +
-                ",strap type=" + getStrap() +
-                ",display=" + display +
+                ", model=" + getModel() +
+                ", price=" + getPrice() +
+                ", fabrication date=" + getFabrication_date() +
+                ", water resistant?: " + isWater_resistant() +
+                ", mechanism=" + getMechanism() +
+                ", strap type=" + getStrap() +
+                ", display=" + display +
                 ", RAM_Memory=" + RAM_Memory + " GB" +
                 ", resolution=" + resolution +
                 ", processor_freq=" + processor_freq + " GHz" +

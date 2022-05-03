@@ -1,7 +1,9 @@
 package Application;
 
+import classes.Smartwatch;
 import classes.User;
 import exceptions.InvalidDataException;
+import service.SmartwatchService;
 import service.UserService;
 
 import java.util.Scanner;
@@ -9,6 +11,7 @@ import java.util.Scanner;
 public class App {
     private Scanner keyboard = new Scanner(System.in);
     private UserService userService = new UserService();
+    private SmartwatchService smartwatchService = new SmartwatchService();
 
     public static void main(String [] args) throws InvalidDataException {
         App app = new App();
@@ -34,6 +37,18 @@ public class App {
                 sortUsers();
                 break;
             case 5:
+                addSmartwatch();
+                break;
+            case 6:
+                selectSmartwatch();
+                break;
+            case 7:
+                selectAllSmartwatches();
+                break;
+            case 8:
+                sortSmartwatches();
+                break;
+            case 9:
                 System.exit(0);
                 break;
         }
@@ -78,10 +93,78 @@ public class App {
         System.out.println(userService.sortAll());
     }
 
+    private void addSmartwatch() throws InvalidDataException{
+        String brand;
+        String model; double price; int fabrication_date; boolean smartwatch=true;
+        boolean water_resistant; String mechanism; String strap; double display;
+        double RAM_Memory; String resolution; double processor_freq; int battery_capacity;
+        int storage_memory; boolean sim=false; boolean gps=true; boolean bluetooth=true;
+        System.out.printf("Please, enter the brand name: ");
+        brand = keyboard.next();
+        System.out.printf("Now enter a model: ");
+        model = keyboard.next();
+        System.out.println("What's the price?: ");
+        price = keyboard.nextDouble();
+        System.out.println("When was is built?: ");
+        fabrication_date = keyboard.nextInt();
+        System.out.println("Is it water resistant?: ");
+        water_resistant = keyboard.nextBoolean();
+        System.out.println("What mechanism does it have?: ");
+        mechanism = keyboard.next();
+        System.out.println("What strap type?: ");
+        strap = keyboard.next();
+        System.out.println("How many inches does the display has?: ");
+        display = keyboard.nextDouble();
+        System.out.println("Memory RAM?: ");
+        RAM_Memory = keyboard.nextDouble();
+        System.out.println("What's the resolution?: ");
+        resolution = keyboard.next();
+        System.out.println("CPU Speed?: ");
+        processor_freq = keyboard.nextDouble();
+        System.out.println("Battery capacity?: ");
+        battery_capacity = keyboard.nextInt();
+        System.out.println("Storage memory?: ");
+        storage_memory = keyboard.nextInt();
+        Smartwatch newSmartwatch = new Smartwatch(brand, model, price, fabrication_date, smartwatch, water_resistant, mechanism, strap, display, RAM_Memory, resolution, processor_freq, battery_capacity, storage_memory, sim, gps, bluetooth);
+        smartwatchService.registerNewSmartwatch(newSmartwatch);
+    }
+
+    private void selectSmartwatch(){
+        String model = new String();
+        System.out.println("What model do you search for?: ");
+        model = keyboard.nextLine();
+        if(smartwatchService.getSmartApp(model)!= null)
+            System.out.println(smartwatchService.getSmartApp(model));
+        else
+            System.out.println("Unknown model!");
+    }
+
+    private void selectAllSmartwatches(){
+        smartwatchService.getAllSmartwatch();
+    }
+
+    private void sortSmartwatches(){
+        System.out.println(smartwatchService.sortAll());
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     private int readOption() {
         try {
             int option = readInt();
-            if (option >= 1 && option <= 5)
+            if (option >= 1 && option <= 9)
                 return option;
         }catch (InvalidDataException invalid){
 
@@ -105,7 +188,11 @@ public class App {
         System.out.println("Press -2- to search for an user.");
         System.out.println("Press -3- to display all users.");
         System.out.println("Press -4- to sort users.");
-        System.out.println("Press -5- to exit the app.");
+        System.out.println("Press -5- to add a new smartwatch.");
+        System.out.println("Press -6- to search for a smartwatch.");
+        System.out.println("Press -7- to display all smartwatches.");
+        System.out.println("Press -8- to sort smartwatches.");
+        System.out.println("Press -9- to exit the app.");
     }
 
 }

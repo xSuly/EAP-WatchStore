@@ -7,6 +7,13 @@ public class Atlantic extends Watch{
     public Atlantic(String brand, String model, double price, int fabrication_date, boolean smartwatch, boolean water_resistant, String mechanism, String strap, boolean on_Stock) {
         super(brand="Atlantic", model, price, fabrication_date, smartwatch, water_resistant, mechanism, strap);
         this.on_Stock = on_Stock;
+        setBrand("Atlantic");
+    }
+
+    public Atlantic(String model, double price, int fabrication_date, boolean smartwatch, boolean water_resistant, String mechanism, String strap, boolean on_Stock) {
+        super(model, price, fabrication_date, smartwatch, water_resistant, mechanism, strap);
+        this.on_Stock = on_Stock;
+        setBrand("Atlantic");
     }
 
     public void about_atlantic()
