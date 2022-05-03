@@ -76,4 +76,8 @@ public class Watch implements Comparable<Watch> {
             return -1;
         else return 1;
     }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
 }

@@ -3,7 +3,7 @@ package classes;
 import java.util.LinkedList;
 
 public class Order {
-    private static int order_id;
+    private static int order_id = 1;
     private LinkedList<Watch> watches;
 
     public Order(int order_id, LinkedList<Watch> watches) {

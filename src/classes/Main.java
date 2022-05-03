@@ -15,8 +15,8 @@ public class Main {
         watchList.add(rolex1);
         System.out.println(watchList);
 
-        User u1 = new User(1, "xSuly", "parolaGrea", "xsuly2001@gmail.com", 20);
-        User u2 = new User(2, "BogdanelSuperMario", "Luigiisbetter", "bogdanelmario@yahoo.ro", 15);
+        User u1 = new User("xSuly", "parolaGrea", "xsuly2001@gmail.com", 20, "B-dul 1 Dec. 1918", "Ramnicu Sarat", "Romania");
+        User u2 = new User("BogdanelSuperMario", "Luigiisbetter", "bogdanelmario@yahoo.ro", 15, "B-dul Iuliu Maniu", "Bucuresti", "Romania");
 
         List<User> userList = new LinkedList<>();
         userList.add(u1);

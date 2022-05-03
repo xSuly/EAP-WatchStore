@@ -2,18 +2,38 @@ package classes;
 
 public class User implements Comparable<User>{
 
-    private int user_id;
+    private static int user_id = 1;
     private String username;
     private String password;
     private String email;
     private int age;
 
-    public User(int user_id, String username, String password, String email, int age) {
-        this.user_id = user_id;
+    private String adress;
+    private String city;
+    private String country;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public User ()
+    {
+        user_id++;
+    }
+
+    public User(String username, String password, String email, int age, String adress, String city, String country) {
+
         this.username = username;
         this.password = password;
         this.email = email;
         this.age = age;
+        this.adress = adress;
+        this.city = city;
+        this.country = country;
     }
 
     public void addWatchUser(Order order, Watch watch)
@@ -40,11 +60,13 @@ public class User implements Comparable<User>{
     @Override
     public String toString() {
         return "User{" +
-                "user_id=" + user_id +
-                ", username='" + username + '\'' +
+                "username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", age=" + age +
+                ", adress='" + adress + '\'' +
+                ", city='" + city + '\'' +
+                ", country='" + country + '\'' +
                 '}';
     }
 
@@ -67,5 +89,29 @@ public class User implements Comparable<User>{
         else if (user_id > o.getUser_id())
             return 1;
         else return -1;
+    }
+
+    public String getAdress() {
+        return adress;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setAdress(String adress) {
+        this.adress = adress;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 }
