@@ -1,6 +1,7 @@
 package models;
 
 import CSV.Read;
+import CSV.Write;
 import exceptions.InvalidDataException;
 import persistence.UserRepository;
 import service.RolexService;
@@ -98,6 +99,9 @@ public class Main {
         Read loader = Read.getInstance();
         Read.loadClasses(rolexService1);
         rolexService1.getAllRolex();
+        rolexService1.addRolex(rolex1);
+        Write write = Write.getInstance();
+        Write.writeToFiles(rolexService1);
 
     }
 }

@@ -1,0 +1,3 @@
+model, price, fabrication_date, smartwatch, water_resistant, mechanism, strap
+Watch{brand='Rolex', model='DaytonaNew2025', price=4500.0 RON, fabrication_date=2015, smartwatch=false, water_resistant=true, mechanism='Quartz', strap='Leather'}
+Watch{brand='Rolex', model='Submariner Date', price=74255.0 RON, fabrication_date=1983, smartwatch=false, water_resistant=true, mechanism='Quartz', strap='Chain'}

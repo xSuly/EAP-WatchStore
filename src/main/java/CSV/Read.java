@@ -19,7 +19,7 @@ public class Read {
         return rw_csv;
     }
 
-    private static void laptops(RolexService service) throws IOException {
+    private static void watchesR(RolexService service) throws IOException {
         File file = new File("src/main/java/CSV/ceasurile.csv");
         FileReader fr = new FileReader(file);
         BufferedReader br = new BufferedReader(fr);
@@ -37,7 +37,7 @@ public class Read {
 
     public static void loadClasses(RolexService rolexService) {
         try {
-            laptops(rolexService);
+            watchesR(rolexService);
         } catch (IOException e) {
 
             e.printStackTrace();
