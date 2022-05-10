@@ -1,7 +1,6 @@
 package persistence;
 
-import classes.Smartwatch;
-import classes.User;
+import models.Smartwatch;
 
 import java.util.ArrayList;
 import java.util.List;

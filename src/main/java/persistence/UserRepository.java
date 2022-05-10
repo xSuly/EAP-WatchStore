@@ -1,6 +1,6 @@
 package persistence;
 
-import classes.User;
+import models.User;
 
 import java.util.ArrayList;
 import java.util.List;

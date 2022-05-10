@@ -1,8 +1,8 @@
-package classes;
+package models;
 
 import java.util.Date;
 
-public class User_ratings {
+public class UserRatings {
     private int rating_id;
     private User user;
     private double stars;
@@ -10,7 +10,7 @@ public class User_ratings {
     private Date date;
     private Watch watch;
 
-    public User_ratings(int rating_id, User user, double stars, String comments, Date date, Watch watch) {
+    public UserRatings(int rating_id, User user, double stars, String comments, Date date, Watch watch) {
         this.rating_id = rating_id;
         this.user = user;
         this.stars = stars;

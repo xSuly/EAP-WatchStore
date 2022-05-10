@@ -1,18 +1,18 @@
-package classes;
+package models;
 
 public class Atlantic extends Watch{
 
-    boolean on_Stock;
+    boolean onStock;
 
-    public Atlantic(String brand, String model, double price, int fabrication_date, boolean smartwatch, boolean water_resistant, String mechanism, String strap, boolean on_Stock) {
+    public Atlantic(String brand, String model, double price, int fabrication_date, boolean smartwatch, boolean water_resistant, String mechanism, String strap, boolean onStock) {
         super(brand="Atlantic", model, price, fabrication_date, smartwatch, water_resistant, mechanism, strap);
-        this.on_Stock = on_Stock;
+        this.onStock = onStock;
         setBrand("Atlantic");
     }
 
-    public Atlantic(String model, double price, int fabrication_date, boolean smartwatch, boolean water_resistant, String mechanism, String strap, boolean on_Stock) {
+    public Atlantic(String model, double price, int fabrication_date, boolean smartwatch, boolean water_resistant, String mechanism, String strap, boolean onStock) {
         super(model, price, fabrication_date, smartwatch, water_resistant, mechanism, strap);
-        this.on_Stock = on_Stock;
+        this.onStock = onStock;
         setBrand("Atlantic");
     }
 

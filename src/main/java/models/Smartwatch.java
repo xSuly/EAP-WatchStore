@@ -1,4 +1,4 @@
-package classes;
+package models;
 
 public class Smartwatch extends Watch{
     private double display;

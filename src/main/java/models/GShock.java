@@ -1,4 +1,4 @@
-package classes;
+package models;
 
 public class GShock extends Watch{
     public GShock(String brand, String model, double price, int fabrication_date, boolean smartwatch, boolean water_resistant, String mechanism, String strap) {

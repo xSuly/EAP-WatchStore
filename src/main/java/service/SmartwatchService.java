@@ -1,6 +1,6 @@
 package service;
 
-import classes.Smartwatch;
+import models.Smartwatch;
 import exceptions.InvalidDataException;
 import persistence.SmartwatchRepository;
 

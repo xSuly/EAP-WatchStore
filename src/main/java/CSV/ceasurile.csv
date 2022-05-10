@@ -1,0 +1,2 @@
+model, price, fabrication_date, smartwatch, water_resistant, mechanism, strap
+Submariner Date, 74255, 1983, false, true, Quartz, Chain

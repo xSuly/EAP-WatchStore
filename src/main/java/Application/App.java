@@ -1,7 +1,7 @@
 package Application;
 
-import classes.Smartwatch;
-import classes.User;
+import models.Smartwatch;
+import models.User;
 import exceptions.InvalidDataException;
 import service.SmartwatchService;
 import service.UserService;

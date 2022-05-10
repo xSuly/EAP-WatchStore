@@ -1,11 +1,8 @@
 package service;
 
-import classes.User;
+import models.User;
 import exceptions.InvalidDataException;
 import persistence.UserRepository;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class UserService {
     private UserRepository userRepository = new UserRepository();
