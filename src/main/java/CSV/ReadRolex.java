@@ -8,19 +8,19 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class Read {
+public class ReadRolex {
 
-    private static final Read rw_csv = null;
+    private static final ReadRolex rw_csv = null;
 
-    private Read() {
+    private ReadRolex() {
     }
 
-    public static Read getInstance() {
+    public static ReadRolex getInstance() {
         return rw_csv;
     }
 
     private static void watchesR(RolexService service) throws IOException {
-        File file = new File("src/main/java/CSV/ceasurile.csv");
+        File file = new File("src/main/java/CSV/RolexText.csv");
         FileReader fr = new FileReader(file);
         BufferedReader br = new BufferedReader(fr);
         String line = null;
@@ -37,6 +37,7 @@ public class Read {
 
     public static void loadClasses(RolexService rolexService) {
         try {
+            AuditLog.log("Loading Rolex watches...");
             watchesR(rolexService);
         } catch (IOException e) {
 

@@ -1,8 +1,11 @@
 package service;
 
+import models.Smartwatch;
 import models.User;
 import exceptions.InvalidDataException;
 import persistence.UserRepository;
+
+import java.util.List;
 
 public class UserService {
     private UserRepository userRepository = new UserRepository();
@@ -58,5 +61,9 @@ public class UserService {
 
     public UserRepository sortAll(){
         return userRepository;
+    }
+
+    public List<User> getUsers(){
+        return userRepository.getAll();
     }
 }

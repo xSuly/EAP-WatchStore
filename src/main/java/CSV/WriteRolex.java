@@ -6,24 +6,22 @@ import service.RolexService;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.TreeSet;
 
 
-public class Write {
-    private static final Write wr_csv = null;
+public class WriteRolex {
+    private static final WriteRolex wr_csv = null;
 
-    private Write() {
+    private WriteRolex() {
     }
 
-    public static Write getInstance() {
+    public static WriteRolex getInstance() {
         return wr_csv;
     }
 
     private static void watchesWR(RolexService service) throws IOException {
         RolexRepository rolexRepository = new RolexRepository();
-        try (PrintWriter writer = new PrintWriter("src/main/java/CSV/ceasurileWrite.csv")) {
+        try (PrintWriter writer = new PrintWriter("src/main/java/CSV/RolexWrite.csv")) {
             TreeSet<Rolex> list = service.getRolexes();
             String header = "model, price, fabrication_date, smartwatch, water_resistant, mechanism, strap";
             writer.println(header);
@@ -37,6 +35,7 @@ public class Write {
 
     public static void writeToFiles(RolexService rolexService) {
         try {
+            AuditLog.log("Uploading Rolex watches...");
             watchesWR(rolexService);
         } catch (IOException e) {
 

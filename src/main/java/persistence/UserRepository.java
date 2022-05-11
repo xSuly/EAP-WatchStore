@@ -1,5 +1,6 @@
 package persistence;
 
+import models.Smartwatch;
 import models.User;
 
 import java.util.ArrayList;
@@ -80,5 +81,9 @@ public class UserRepository implements  GenericRepository<User>{
     @Override
     public int getSize() {
         return users.size();
+    }
+
+    public List<User> getAll() {
+        return users;
     }
 }

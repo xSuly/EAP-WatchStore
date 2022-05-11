@@ -1,8 +1,13 @@
 package service;
 
+import CSV.AuditLog;
 import models.Smartwatch;
 import exceptions.InvalidDataException;
 import persistence.SmartwatchRepository;
+
+import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
 
 
 public class SmartwatchService {
@@ -10,8 +15,7 @@ public class SmartwatchService {
     private SmartwatchRepository smartwatchRepository = new SmartwatchRepository();
 
 
-    public void registerNewSmartwatch (Smartwatch newSmartwatch) throws InvalidDataException
-    {
+    public void registerNewSmartwatch (Smartwatch newSmartwatch) throws InvalidDataException, IOException {
 
         if(newSmartwatch.getBrand() == null || newSmartwatch.getBrand().trim().isEmpty()  )
         {
@@ -61,24 +65,34 @@ public class SmartwatchService {
         {
             throw new InvalidDataException("Invalid storage memory.");
         }
+        AuditLog.log("Adding Smartwatch: " + newSmartwatch.getModel());
         smartwatchRepository.add(newSmartwatch);
     }
 
     public void getAllSmartwatch(){
-        for (int i = 0; i < smartwatchRepository.getSize(); i++)
+       /* for (int i = 0; i < smartwatchRepository.getSize(); i++)
         {
             System.out.println(smartwatchRepository.get(i));
-        }
+        }*/
+        smartwatchRepository.getAll().forEach(System.out::println);
     }
 
-    public Smartwatch getSmartApp(String model1){
+    public Smartwatch getSmartApp(String model1) throws IOException {
         for (int i = 0; i < smartwatchRepository.getSize(); i++)
             if(smartwatchRepository.get(i).getModel().equals(model1))
+            {
+                AuditLog.log("Getting Smartwatch: " + model1);
                 return smartwatchRepository.get(i);
+            }
+
         return null;
     }
 
     public SmartwatchRepository sortAll(){
         return smartwatchRepository;
+    }
+
+    public List<Smartwatch> getSmartwatches(){
+        return smartwatchRepository.getAll();
     }
 }

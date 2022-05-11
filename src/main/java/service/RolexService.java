@@ -1,28 +1,39 @@
 package service;
 
+import CSV.AuditLog;
 import models.Rolex;
 import persistence.RolexRepository;
 
+import java.io.IOException;
 import java.util.Comparator;
-import java.util.List;
+
+import java.util.Iterator;
 import java.util.TreeSet;
 
 public class RolexService {
     private RolexRepository rolexRepository = new RolexRepository();
 
-    public void addRolex(Rolex rolex)
-    {
+    public void addRolex(Rolex rolex) throws IOException {
+        AuditLog.log("Adding Rolex watch: " + rolex.getModel());
         rolexRepository.save(rolex);
     }
     public void getAllRolex(){
         rolexRepository.getAll().forEach(System.out::println);
     }
-    public void removeByModel(String model){
+    public void removeByModel(String model) throws IOException {
+        AuditLog.log("Removing Rolex watch: " + model);
         TreeSet<Rolex> rolexTreeSet = rolexRepository.getAll();
 
-        for(Rolex rolex : rolexTreeSet)
+        Iterator<Rolex> itr = rolexTreeSet.iterator();
+        while (itr.hasNext())
+        {
+            Rolex rolex = itr.next();
             if(rolex.getModel().equals(model))
-                rolexRepository.delete(rolex);
+            {
+                itr.remove();
+            }
+        }
+
     }
 
     public void getRolexModel(){

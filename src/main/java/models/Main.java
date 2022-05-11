@@ -1,19 +1,20 @@
 package models;
 
-import CSV.Read;
-import CSV.Write;
+import CSV.*;
 import exceptions.InvalidDataException;
 import persistence.UserRepository;
 import service.RolexService;
 import service.SmartwatchService;
 import service.UserService;
+import service.WatchService;
 
+import java.io.IOException;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) throws InvalidDataException {
+    public static void main(String[] args) throws InvalidDataException, IOException {
 
         Watch watch1 = new Watch("Fossil", "Townsman", 935.50, 2018,
                 false, true, "Mechanic", "Chain");
@@ -26,9 +27,9 @@ public class Main {
         rolexService.addRolex(rolex1);
         rolexService.addRolex(rolex2);
         rolexService.getAllRolex();
-       // rolexService.removeByModel("Daytona");
-       // rolexService.getAllRolex();
-        //rolexService.addRolex(rolex1);
+        rolexService.removeByModel("Daytona");
+        rolexService.getAllRolex();
+        rolexService.addRolex(rolex1);
         rolexService.updateModelByModel("Daytona", "DaytonaNew2025");
         rolexService.getAllRolex();
         System.out.println("------------------------finish------------------\n");
@@ -68,7 +69,7 @@ public class Main {
 
         System.out.println(userList);
 
-        Atlantic atlantic1 = new Atlantic("Seabase", 1147, 2020, false,
+       Atlantic atlantic1 = new Atlantic("Seabase", 1147, 2020, false,
                 true, "Analog", "Chain", true);
         Watch watch2 = new Watch("Breitling", "Superocean", 25500, 2010,
                 false, true, "Analog", "Leather");
@@ -95,13 +96,55 @@ public class Main {
 
         System.out.println(smartwatch1);
 
+        AuditLog.clearLog();
+        AuditLog.log("Initializing system...");
+
+
         RolexService rolexService1 = new RolexService();
-        Read loader = Read.getInstance();
-        Read.loadClasses(rolexService1);
+        ReadRolex loader = ReadRolex.getInstance();
+        ReadRolex.loadClasses(rolexService1);
         rolexService1.getAllRolex();
         rolexService1.addRolex(rolex1);
-        Write write = Write.getInstance();
-        Write.writeToFiles(rolexService1);
+        rolexService1.addRolex(rolex2);
+        rolexService1.removeByModel("Oyster Perpetual");
+        WriteRolex write = WriteRolex.getInstance();
+        WriteRolex.writeToFiles(rolexService1);
+        //rolex1.time_show();
+
+
+
+        SmartwatchService smartwatchService1 = new SmartwatchService();
+        ReadSmartwatch loader2 = ReadSmartwatch.getInstance();
+        ReadSmartwatch.loadClasses(smartwatchService1);
+        smartwatchService1.getAllSmartwatch();
+        smartwatchService1.registerNewSmartwatch(smartwatch1);
+        smartwatchService1.registerNewSmartwatch(smartwatch2);
+        WriteSmartwatch write2 = WriteSmartwatch.getInstance();
+        WriteSmartwatch.writeToFiles(smartwatchService1);
+
+
+
+        UserService userService1 = new UserService();
+        ReadUser loader3 = ReadUser.getInstance();
+        ReadUser.loadClasses(userService1);
+        userService1.getAllUsers();
+        userService1.registerNewUser(u1);
+        userService1.registerNewUser(u2);
+        WriteUser write3 = WriteUser.getInstance();
+        WriteUser.writeToFiles(userService1);
+
+        WatchService watchService = new WatchService();
+        ReadWatch loader4 = ReadWatch.getInstance();
+        ReadWatch.loadClasses(watchService);
+        watchService.getAllWatches();
+        watchService.addWatch(watch1);
+        watchService.addWatch(watch2);
+        watchService.removeByModel("Townsman");
+        WriteWatch write4 = WriteWatch.getInstance();
+        WriteWatch.writeToFiles(watchService);
+
+        AuditLog.log("System is closing...");
+        AuditLog.getBw().close();
 
     }
 }

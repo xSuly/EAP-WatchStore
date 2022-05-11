@@ -21,10 +21,10 @@ public class User implements Comparable<User>{
         return email;
     }
 
-    public User ()
+    /*public User ()
     {
         user_id++;
-    }
+    }*/
 
     public User(String username, String password, String email, int age, String adress, String city, String country) {
 

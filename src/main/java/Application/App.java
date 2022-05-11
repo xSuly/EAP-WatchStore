@@ -6,6 +6,7 @@ import exceptions.InvalidDataException;
 import service.SmartwatchService;
 import service.UserService;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class App {
@@ -13,7 +14,7 @@ public class App {
     private UserService userService = new UserService();
     private SmartwatchService smartwatchService = new SmartwatchService();
 
-    public static void main(String [] args) throws InvalidDataException {
+    public static void main(String [] args) throws InvalidDataException, IOException {
         App app = new App();
         while (true){
             app.showMenu();
@@ -22,7 +23,7 @@ public class App {
         }
     }
 
-    private void execute(int option) throws InvalidDataException {
+    private void execute(int option) throws InvalidDataException, IOException {
         switch (option){
             case 1:
                 addUser();
@@ -93,7 +94,7 @@ public class App {
         System.out.println(userService.sortAll());
     }
 
-    private void addSmartwatch() throws InvalidDataException{
+    private void addSmartwatch() throws InvalidDataException, IOException {
         String brand;
         String model; double price; int fabrication_date; boolean smartwatch=true;
         boolean water_resistant; String mechanism; String strap; double display;
@@ -129,7 +130,7 @@ public class App {
         smartwatchService.registerNewSmartwatch(newSmartwatch);
     }
 
-    private void selectSmartwatch(){
+    private void selectSmartwatch() throws IOException {
         String model = new String();
         System.out.println("What model do you search for?: ");
         model = keyboard.nextLine();
