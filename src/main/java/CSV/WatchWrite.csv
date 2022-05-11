@@ -1,0 +1,3 @@
+brand, model, price, fabrication_date, smartwatch, water_resistant, mechanism, strap
+Watch{brand='EDOX', model='SkyDiver Neptunian', price=6192.0 RON, fabrication_date=2010, smartwatch=false, water_resistant=true, mechanism='Analog', strap='Chain'}
+Watch{brand='Breitling', model='Superocean', price=25500.0 RON, fabrication_date=2010, smartwatch=false, water_resistant=true, mechanism='Analog', strap='Leather'}

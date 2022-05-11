@@ -1,0 +1,4 @@
+username, password, email, age, address, city, country
+User{user_id= '1002', username='JohnC', password='wrestlemania27', email='johncena@wwe.com', age=46, adress='westnewbury', city='massachusetts', country='usa'}
+User{user_id= '1000', username='xSuly', password='parolaGrea', email='xsuly2001@gmail.com', age=20, adress='B-dul 1 Dec. 1918', city='Ramnicu Sarat', country='Romania'}
+User{user_id= '1001', username='BogdanelSuperMario', password='Luigiisbetter', email='bogdanelmario@yahoo.ro', age=15, adress='B-dul Iuliu Maniu', city='Bucuresti', country='Romania'}
