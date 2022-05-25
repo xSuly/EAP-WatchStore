@@ -10,12 +10,14 @@ import java.io.IOException;
 
 public class ReadRolex {
 
-    private static final ReadRolex rw_csv = null;
+    private static ReadRolex rw_csv = null;
 
     private ReadRolex() {
     }
 
     public static ReadRolex getInstance() {
+        if(rw_csv == null)
+            rw_csv = new ReadRolex();
         return rw_csv;
     }
 

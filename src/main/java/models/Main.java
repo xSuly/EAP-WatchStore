@@ -1,6 +1,8 @@
 package models;
 
 import CSV.*;
+import JDBC.DBConn;
+import JDBC.DBRead;
 import exceptions.InvalidDataException;
 import persistence.UserRepository;
 import service.RolexService;
@@ -145,6 +147,28 @@ public class Main {
 
         AuditLog.log("System is closing...");
         AuditLog.getBw().close();
+
+
+        // database check
+        AuditLog.clearLog();
+        AuditLog.log("Initializing system...");
+
+        DBConn dbConn = DBConn.getInstance();
+        DBRead dbRead = DBRead.getInstance();
+
+        boolean dummy = true;
+        try {
+            dbConn.startConnection();
+            dbRead.loadingObjects(watchService, rolexService, smartwatchService, userService);
+        } catch (Exception e){
+            AuditLog.log("Can't access database ...");
+            dummy = false;
+        }
+
+        if(dummy) dbConn.closeConnection();
+        AuditLog.log("System is closing...");
+        AuditLog.getBw().close();
+
 
     }
 }
